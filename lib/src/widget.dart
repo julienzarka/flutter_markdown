@@ -246,9 +246,6 @@ class Markdown extends MarkdownWidget {
     md.ExtensionSet extensionSet,
     MarkdownImageBuilder imageBuilder,
     MarkdownCheckboxBuilder checkboxBuilder,
-    this.padding: const EdgeInsets.all(16.0),
-    this.physics,
-    this.shrinkWrap: false,
   }) : super(
           key: key,
           data: data,
@@ -261,26 +258,9 @@ class Markdown extends MarkdownWidget {
           checkboxBuilder: checkboxBuilder,
         );
 
-  /// The amount of space by which to inset the children.
-  final EdgeInsets padding;
-
-  /// How the scroll view should respond to user input.
-  ///
-  /// See also: [ScrollView.physics]
-  final ScrollPhysics physics;
-
-  /// Whether the extent of the scroll view in the scroll direction should be
-  /// determined by the contents being viewed.
-  ///
-  /// See also: [ScrollView.shrinkWrap]
-  final bool shrinkWrap;
-
   @override
   Widget build(BuildContext context, List<Widget> children) {
-    return ListView(
-      padding: padding,
-      physics: physics,
-      shrinkWrap: shrinkWrap,
+    return Column(
       children: children,
     );
   }
